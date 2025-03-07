@@ -22,5 +22,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("",include("app.urls")),
     path("student/",include("student.urls")),
+    path("authentication/",include("home_auth.urls")),
+
 
 ]
