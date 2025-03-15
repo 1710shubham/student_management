@@ -5,4 +5,8 @@ from django.shortcuts import render
 
 
 def Index(request):
-    return render(request,"Home/index.html")
+    return render(request,"auth/login.html")
+
+
+def dashboard(request):
+    return render(request,"student/student-dashboard.html")

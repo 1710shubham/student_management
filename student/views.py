@@ -140,7 +140,9 @@ def delete_student(request,slug):
     if request.method == "POST":
         student=get_object_or_404(Student,slug=slug)
         student_name = f"{student.first_name} {student.last_name}"
+        parent = student.parent
         student.delete()
-
+        if parent and not Student.objects.filter(parent=parent).exists():
+            parent.delete()
         return redirect('student_list')
     return HttpResponseForbidden()
